@@ -350,3 +350,9 @@ that operates with shifting or permutation. They range in complexity from very s
 very complex. However, even if some of them seems to be complex, their use can be resumed to
 entertaining, as even a not so good computer is able to break every classical cipher relatively
 easy. Nonetheless, they are important to know for a better understanding of the modern ciphers.
+
+----
+
+*_shinigami_ - in Japanese religion, gods or supernatural spirits that invite people toward death \
+**_kuchisabishii_ - (from Japanese) the state when you are not hungry, but you eat because your mouth 
+is lonely
