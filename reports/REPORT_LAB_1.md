@@ -71,7 +71,7 @@ row and column index of the new letter. To decrypt this cipher, instead of mergi
 it is necessary to split the chunks of size _key * 2_ in two equal groups and write down a letter
 with row index from the first group and column index from the second one.
 
-## Objectives:
+## Objectives
 1. Get familiar with the basics of cryptography and classical ciphers.
 2. Implement 4 types of the classical ciphers:
     - Caesar Cipher with one key used for substitution (as explained above);
@@ -325,24 +325,24 @@ for decryption.
 The results for each type of cipher are the following:
 * Caesar Cipher with permutation:
 
-![Alt Text](Lab_1_images/caesar_encryption.png)
-![Alt Text](Lab_1_images/caesar_decryption.png)
+![Alt Text](../images/caesar_encryption.png)
+![Alt Text](../images/caesar_decryption.png)
 
 * Vigenere Cipher:
 
-![Alt Text](Lab_1_images/vigenere_encryption.png)
-![Alt Text](Lab_1_images/vigenere_decryption.png)
+![Alt Text](../images/vigenere_encryption.png)
+![Alt Text](../images/vigenere_decryption.png)
 
 * Playfair Cipher (note that here, the after the decryption there is an additional letter at the 
 end due to adding fill letters in encryption phase):
 
-![Alt Text](Lab_1_images/playfair_encryption.png)
-![Alt Text](Lab_1_images/playfair_decryption.png)
+![Alt Text](../images/playfair_encryption.png)
+![Alt Text](../images/playfair_decryption.png)
 
 * Bifid Cipher:
 
-![Alt Text](Lab_1_images/bifid_encryption.png)
-![Alt Text](Lab_1_images/bifid_decryption.png)
+![Alt Text](../images/bifid_encryption.png)
+![Alt Text](../images/bifid_decryption.png)
 
 ## Conclusions 
 &ensp;&ensp;&ensp; Classical ciphers are mostly mono-alphabetic or poly alphabetic ciphers

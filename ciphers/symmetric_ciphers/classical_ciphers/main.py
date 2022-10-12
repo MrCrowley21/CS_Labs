@@ -1,8 +1,8 @@
-from Control import *
-from Caesar_cipher_permutation import *
-from Vigenere_cipher import *
-from Playfair_cipher import *
-from Bifid_cipher import *
+from ciphers.symmetric_ciphers.classical_ciphers.implementation.control import *
+from implementation.implementation.caesar_cipher_permutation import *
+from implementation.implementation.vigenere_cipher import *
+from implementation.implementation.playfair_cipher import *
+from implementation.implementation.bifid_cipher import *
 
 # initiate control class
 control = Control()
