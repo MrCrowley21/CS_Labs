@@ -297,9 +297,12 @@ described above works and what output it gives. As the input data, it will be us
 
 The obtained results are the following:
 * _Grain Cipher_
+
 ![Alt Text](../images/grain_encryption.png)
 ![Alt Text](../images/grain_decryption.png)
+
 * _DES_
+
 ![Alt Text](../images/des_encryption.png)
 ![Alt Text](../images/des_decryption.png)
 
