@@ -1,4 +1,4 @@
-from implementation.string_transformer import *
+from string_transformer import *
 from implementation.control import *
 from implementation.cipher_implementation.grain_cipher import *
 from implementation.cipher_implementation.des_cipher import *
