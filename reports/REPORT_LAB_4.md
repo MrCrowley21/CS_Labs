@@ -21,7 +21,7 @@ database. It is quite obvious that storing passwords in plaintext is a major cyb
 since if the malicious individuals get access to the data, they get the key to the one's system 
 and, since the vast majority of people reuse the passwords - they get access to a large amount of 
 data. The most common algorithms for password hashing are the MD5, Argon2, Bcrypt, mostly due to 
-the presence of the salt(an additional input to a hash function).
+the presence of the salt(an additional input to a hash function). \
 &ensp;&ensp;&ensp; Another interesting using of hash functions are in digital signature. On broad 
 terms, digital signatures are used to demonstrate the authenticity of the person that digitally 
 signed a digital message or document. The algorithm on its core is pretty simple:the document the 
