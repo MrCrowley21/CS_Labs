@@ -2,7 +2,7 @@
 class Control:
     # select the cipher to be used
     def get_cipher(self):
-        print('Choose the number that corresponds to th cipher you want use:\n'
+        print('Choose the number that corresponds to the cipher you want use:\n'
               '1 - Elliptic-curve Diffie–Hellman Cipher (ECDH)\n'
               '2 - Elliptic Curve ElGamal Cipher\n')
         cipher = int(input())
