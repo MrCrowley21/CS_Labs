@@ -19,6 +19,6 @@ else:
 #  choose the action to be performed
 action = control.get_action()
 if action == 1:
-    print(cipher.encode_text())
+    print(cipher.encrypt_text())
 else:
-    print(cipher.decode_text())
+    print(cipher.decrypt_text())

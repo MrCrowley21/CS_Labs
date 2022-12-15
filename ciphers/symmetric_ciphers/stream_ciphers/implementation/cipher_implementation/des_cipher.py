@@ -1,22 +1,26 @@
-from implementation.string_transformer import *
-from implementation.utils import *
+from string_transformer import *
+from ciphers.symmetric_ciphers.stream_ciphers.implementation.utils import *
 
 
 class DESCipher:
-    def __init__(self):
-        self.key, self.text = self.__get_input_data()
+    def __init__(self, key, text):
+        # this line is for non-server version
+        # self.key, self.text = self.__get_input_data()
+        self.key = key
+        self.text = text
         self.nr_zero_addition = 0  # nr of added zeros to complete the block
         self.transformer = StringTransformer()  # initiation of class transforming text to binary form and vice-versa
 
     # get the key and the text to be encrypted or decrypted
-    def __get_input_data(self):
-        print('Input the key. Its length must be exactly 8 characters')
-        key = input()
-        if len(key) != 8:
-            raise Exception('The key must be of size 8')
-        print('Input the text you want to be encrypted or decrypted:')
-        text = input()
-        return key, text
+    # this function is for non-server version
+    # def __get_input_data(self):
+    #     print('Input the key. Its length must be exactly 8 characters')
+    #     key = input()
+    #     if len(key) != 8:
+    #         raise Exception('The key must be of size 8')
+    #     print('Input the text you want to be encrypted or decrypted:')
+    #     text = input()
+    #     return key, text
 
     # get the zero additions for decryption
     def __get_nr_zero_addition(self):
@@ -160,7 +164,7 @@ class DESCipher:
         key = self.transformer.convert_text_to_bit(self.key)
         blocks, nr_zero_addition = self.__group_in_blocks(binary_text)
         encrypted_text = self.__get_encrypt_decrypt_algorithm(blocks, key, True)
-        return f'Encrypted text: {encrypted_text} \nNr of additional zeros: {nr_zero_addition}'
+        return f'Encrypted text: {encrypted_text} Nr of additional zeros: {nr_zero_addition}'
 
     def decrypt_text(self):
         self.__get_nr_zero_addition()

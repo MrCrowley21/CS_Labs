@@ -1,6 +1,9 @@
 class PlayfairCipher:
-    def __init__(self):
-        self.keyword, self.word = self.__get_input_data()
+    def __init__(self, keyword, word):
+        # this line is for non-server version
+        # self.keyword, self.word = self.__get_input_data()
+        self.keyword = keyword
+        self.word = word
         self.processed_word = []  # list of groups by 2 obtained from the input text
         self.normal_alphabet = [chr(i) for i in range(65, 91)]  # english alphabet in the correct order
         self.alphabet = []  # permuted alphabet
@@ -8,19 +11,20 @@ class PlayfairCipher:
         self.dictionary = {}  # a dictionary for letter position in the matrix
 
     # get the keyword and the text to be encrypted or decrypted
-    def __get_input_data(self):
-        print('Input the keyword. It must contain only latin letters and blank '
-              'spaces:')
-        keyword = input()
-        # check the rightfulness of the keyword input
-        if not all(x.isalpha() or x.isspace() for x in keyword):
-            raise Exception('Keyword should contain only latin letters and blank spaces')
-        print('Input the text you want to be encrypted or decrypted:')
-        word = input()
-        # check the rightfulness of the word input
-        if not all(x.isalpha() or x.isspace() for x in word):
-            raise Exception('The text should contain only latin letters and blank spaces')
-        return keyword, word
+    # this function is for non-server version
+    # def __get_input_data(self):
+    #     print('Input the keyword. It must contain only latin letters and blank '
+    #           'spaces:')
+    #     keyword = input()
+    #     # check the rightfulness of the keyword input
+    #     if not all(x.isalpha() or x.isspace() for x in keyword):
+    #         raise Exception('Keyword should contain only latin letters and blank spaces')
+    #     print('Input the text you want to be encrypted or decrypted:')
+    #     word = input()
+    #     # check the rightfulness of the word input
+    #     if not all(x.isalpha() or x.isspace() for x in word):
+    #         raise Exception('The text should contain only latin letters and blank spaces')
+    #     return keyword, word
 
     # split the input text in the groups by 2 according to the rules
     def __separate_plain_text(self):
@@ -100,7 +104,7 @@ class PlayfairCipher:
             self.processed_word.append([letter_1, letter_2])
 
     # encrypt the text
-    def encode_text(self):
+    def encrypt_text(self):
         encoded_text = ''
         self.__separate_plain_text()
         self.__build_matrix()
@@ -121,7 +125,7 @@ class PlayfairCipher:
         return encoded_text
 
     # decrypt the text
-    def decode_text(self):
+    def decrypt_text(self):
         decoded_text = ''
         self.__group_plain_text()
         self.__build_matrix()
