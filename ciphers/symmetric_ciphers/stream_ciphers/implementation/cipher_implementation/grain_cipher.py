@@ -1,30 +1,35 @@
 import numpy as np
 
-from implementation.string_transformer import *
+from string_transformer import *
 
 
 class GrainCipher:
-    def __init__(self):
-        self.key, self.iv, self.text = self.__get_input_data()
+    def __init__(self, key, iv, text):
+        # this line is for non-server version
+        # self.key, self.iv, self.text = self.__get_input_data()
+        self.key = key
+        self.iv = iv
+        self.text = text
         self.lfsr = np.zeros(80, dtype=bool)  # the 80-bit linear feedback shift register
         self.nfsr = np.zeros(80, dtype=bool)  # the 80-bit non-linear feedback shift  register
         self.transformer = StringTransformer()  # initiation of class transforming text to binary form and vice-versa
 
     # get the key, iv and the text to be encrypted or decrypted
-    def __get_input_data(self):
-        print('Input the key. Its length must be exactly 10 characters')
-        key = input()
-        # check the rightfulness of the keyword input
-        if len(key) != 10:
-            raise Exception('Keyword must have the length exactly 10')
-        print('Input the iv. Its length must be exactly 8 characters')
-        iv = input()
-        # check the rightfulness of the keyword input
-        if len(iv) != 8:
-            raise Exception('Keyword must have the length exactly 8')
-        print('Input the text you want to be encrypted or decrypted:')
-        text = input()
-        return key, iv, text
+    # this function is for non-server version
+    # def __get_input_data(self):
+    #     print('Input the key. Its length must be exactly 10 characters')
+    #     key = input()
+    #     # check the rightfulness of the keyword input
+    #     if len(key) != 10:
+    #         raise Exception('Keyword must have the length exactly 10')
+    #     print('Input the iv. Its length must be exactly 8 characters')
+    #     iv = input()
+    #     # check the rightfulness of the keyword input
+    #     if len(iv) != 8:
+    #         raise Exception('Keyword must have the length exactly 8')
+    #     print('Input the text you want to be encrypted or decrypted:')
+    #     text = input()
+    #     return key, iv, text
 
     # initiate the LFSR and NLFSR
     def __initiate_lfsr_nfsr(self):

@@ -1,22 +1,26 @@
 class VigenereCipher:
-    def __init__(self):
-        self.keyword, self.word = self.__get_input_data()
+    def __init__(self, keyword, word):
+        # this line is for non-server version
+        # self.keyword, self.word = self.__get_input_data()
+        self.keyword = keyword
+        self.word = word
         self.normal_alphabet = [chr(i) for i in range(65, 91)]  # english alphabet in the correct order
 
     # get the keyword and the text to be encrypted or decrypted
-    def __get_input_data(self):
-        print('Input the keyword. It must contain only latin letters and blank '
-              'spaces:')
-        keyword = input()
-        # check the rightfulness of the keyword input
-        if not all(x.isalpha() or x.isspace() for x in keyword):
-            raise Exception('Keyword should contain only latin letters and blank spaces')
-        print('Input the text you want to be encrypted or decrypted:')
-        word = input()
-        # check the rightfulness of the word input
-        if not all(x.isalpha() or x.isspace() for x in word):
-            raise Exception('The text should contain only latin letters and blank spaces')
-        return keyword, word
+    # this function is for non-server version
+    # def __get_input_data(self):
+    #     print('Input the keyword. It must contain only latin letters and blank '
+    #           'spaces:')
+    #     keyword = input()
+    #     # check the rightfulness of the keyword input
+    #     if not all(x.isalpha() or x.isspace() for x in keyword):
+    #         raise Exception('Keyword should contain only latin letters and blank spaces')
+    #     print('Input the text you want to be encrypted or decrypted:')
+    #     word = input()
+    #     # check the rightfulness of the word input
+    #     if not all(x.isalpha() or x.isspace() for x in word):
+    #         raise Exception('The text should contain only latin letters and blank spaces')
+    #     return keyword, word
 
     # make uppercase all letters in the input word and remove spaces
     def __set_word(self, word):
@@ -25,7 +29,7 @@ class VigenereCipher:
         return word
 
     # encrypt the text
-    def encode_text(self):
+    def encrypt_text(self):
         self.word = self.__set_word(self.word)
         self.keyword = self.__set_word(self.keyword)
         keyword_length = len(self.keyword)
@@ -42,7 +46,7 @@ class VigenereCipher:
         return encoded_text
 
     # decrypt the text
-    def decode_text(self):
+    def decrypt_text(self):
         self.word = self.__set_word(self.word)
         self.keyword = self.__set_word(self.keyword)
         keyword_length = len(self.keyword)

@@ -1,31 +1,36 @@
 class BifidCipher:
-    def __init__(self):
-        self.keyword, self.key, self.word = self.__get_input_data()
+    def __init__(self, keyword, key, word):
+        # this line is for non-server version
+        # self.keyword, self.key, self.word = self.__get_input_data()
+        self.keyword = keyword
+        self.key = key
+        self.word = word
         self.normal_alphabet = [chr(i) for i in range(65, 91)]  # english alphabet in the correct order
         self.alphabet = []  # permuted alphabet
         self.matrix = [[0 for i in range(5)] for j in range(5)]  # a 5 by 5 matrix
         self.dictionary = {}  # a dictionary for letter position in the matrix
 
     # get the keyword, key and the text to be encrypted or decrypted
-    def __get_input_data(self):
-        print('Input the keyword. It must contain only latin letters and blank '
-              'spaces:')
-        keyword = input()
-        # check the rightfulness of the keyword input
-        if not all(x.isalpha() or x.isspace() for x in keyword):
-            raise Exception('Keyword should contain only latin letters and blank spaces')
-        print('Input the key for block sizes. It should be an integer:')
-        # check the rightfulness of the key input
-        try:
-            key = int(input())
-        except:
-            raise Exception('Block sizes key should be an integer')
-        print('Input the text you want to be encrypted or decrypted:')
-        word = input()
-        # check the rightfulness of the word input
-        if not all(x.isalpha() or x.isspace() for x in word):
-            raise Exception('The text should contain only latin letters and blank spaces')
-        return keyword, key, word
+    # this function is for non-server version
+    # def __get_input_data(self):
+    #     print('Input the keyword. It must contain only latin letters and blank '
+    #           'spaces:')
+    #     keyword = input()
+    #     # check the rightfulness of the keyword input
+    #     if not all(x.isalpha() or x.isspace() for x in keyword):
+    #         raise Exception('Keyword should contain only latin letters and blank spaces')
+    #     print('Input the key for block sizes. It should be an integer:')
+    #     # check the rightfulness of the key input
+    #     try:
+    #         key = int(input())
+    #     except:
+    #         raise Exception('Block sizes key should be an integer')
+    #     print('Input the text you want to be encrypted or decrypted:')
+    #     word = input()
+    #     # check the rightfulness of the word input
+    #     if not all(x.isalpha() or x.isspace() for x in word):
+    #         raise Exception('The text should contain only latin letters and blank spaces')
+    #     return keyword, key, word
 
     # make uppercase all letters in the input word and remove spaces
     def __set_word(self, word):
@@ -101,7 +106,7 @@ class BifidCipher:
         return rows, columns
 
     # encrypt the text
-    def encode_text(self):
+    def encrypt_text(self):
         self.__build_matrix()
         self.word = self.__set_word(self.word)
         encoded_blocks = self.__get_encoding_blocks()
@@ -117,7 +122,7 @@ class BifidCipher:
         return encoded_text
 
     # decrypt the text
-    def decode_text(self):
+    def decrypt_text(self):
         self.__build_matrix()
         self.word = self.__set_word(self.word)
         rows, columns = self.__get_decoding_blocks()
