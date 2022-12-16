@@ -17,8 +17,8 @@ class EmailManipulator:
             # Use TLS to add security
             smtp.starttls()
             # User Authentication
-            smtp.login("graur.lenka@gmail.com", "iekfppntbowxegik")
-            sender = "graur.lenka@gmail.com"
+            smtp.login("sender_email", "code")
+            sender = "sender_email"
             receiver = receiver_email
             msg = MIMEMultipart('alternative')
             # Defining The Subject
